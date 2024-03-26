@@ -1,0 +1,77 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Pet the Cat (Simulator!)</title>
+	</head>
+
+	<body>
+		<!-- My code is messy but who cares, it's just my first small web game in a while.. -->
+		<!-- and just lost interest in coding in general. -->
+		<noscript>this game runs on js. if you had disabled it then this game will not work!</noscript>
+		<div oncontextmenu="return false;">You have petted the cat...</div>
+		<div class="petCount" oncontextmenu="return false;"><h1><b>0</b></h1>times</div>
+
+		<div class="cat">
+			<img src="https://t3.ftcdn.net/jpg/05/89/92/20/240_F_589922009_7jle5INk6uJXbSxBs9bEIlvTKQIVZRy3.jpg" oncontextmenu="return false;" ondrag="return false;" ondragstart="return false;"></img>
+		</div>
+
+		<div class="petMultiplier">
+			<button class="btnPetMultiplier" oncontextmenu="return false;">Add pet multiplier (x1) (Cost: 50)</button>
+		</div>
+
+		This game is supposed to have music. If there's no music, please turn on Autoplay (allow audio only) and refresh the page.
+		<audio src="GameMusic.mp3" autoplay loop></audio>
+
+		<script type="text/javascript">
+			var pets = 0;
+			var petMultiple = 0;
+			var petMultipleCost = 50;
+			var cat = document.querySelector(".cat");
+			var petCount = document.querySelector(".petCount");
+			var petMultiplierBtn = document.querySelector(".btnPetMultiplier");
+
+			let onPet = () => {
+				pets = pets + (1 + petMultiple);
+				petCount.innerHTML = `<h1><b>${pets}</b></h1>times`;
+			};
+			let multiplyThePets = () => {
+				if (pets >= petMultipleCost){
+					pets -= petMultipleCost;
+					petCount.innerHTML = `<h1><b>${pets}</b></h1>times`;
+					petMultiple++;
+					petMultipleCost = Math.floor(petMultipleCost * 1.5);
+					petMultiplierBtn.innerHTML = `Add pet multiplier (x${petMultiple + 1}) (Cost: ${petMultipleCost})`;
+				}
+			};
+
+			cat.addEventListener("click", onPet);
+			petMultiplierBtn.addEventListener("click", multiplyThePets);
+		</script>
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@950&display=swap');
+
+			body {
+				font-family: "Roboto";
+			}
+
+			.cat img {
+				cursor: -moz-grab;
+			}
+
+			.cat img:active {
+				cursor: -moz-grabbing;
+			}
+
+			.btnPetMultiplier{
+				cursor: pointer;
+				font-family: "Inconsolata";
+				background-color: #ffffff;
+				color: #000000;
+				border: 1px solid black;
+				border-radius: 5px;
+			}
+		</style>
+	</body>
+</html>
