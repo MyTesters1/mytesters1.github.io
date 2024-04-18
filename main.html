@@ -1,0 +1,29 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Pet the Cat (Simulator!)</title>
+		<link rel="stylesheet" href="style.css"> 
+	</head>
+
+	<body oncontextmenu="return false;">
+		<!-- My code is messy but who cares, it's just my first small web game in a while.. -->
+		<!-- and just lost interest in coding in general. -->
+
+		<div>You have petted the cat...</div>
+		<div class="petCount"><h1><b>0</b></h1>times</div>
+
+		<div class="cat">
+			<img src="Content\cat.jpg" ondragstart="return false;" ondragend="return false;">
+		</div>
+
+		<div class="petMultiplier">
+			<button class="btnPetMultiplier">Add pet multiplier (x1) (Cost: 50)</button>
+		</div>
+
+		This game is supposed to have music. If there's no music, please turn on Autoplay (allow audio only) and refresh the page.
+		<audio src="GameMusic.mp3" autoplay loop></audio>
+		<script src="game.js"></script>
+		
+		<noscript>this game runs on js. if you had disabled it then this game will not work!</noscript>
+	</body>
+</html>
