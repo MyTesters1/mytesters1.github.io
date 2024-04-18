@@ -5,11 +5,11 @@ body {
 	font-family: "Roboto";
 }
 
-.cat img {
+.cat {
 	cursor: -moz-grab;
 }
 
-.cat img:active {
+.cat:active {
 	cursor: -moz-grabbing;
 }
 
